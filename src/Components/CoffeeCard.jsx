@@ -6,7 +6,7 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
     const { _id, name, quantity, supplier, taste, category, details, photo } = coffee;
 
     const handleDelete = _id => {
-        console.log(_id);
+        // console.log(_id);
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -17,12 +17,12 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/coffee/${_id}`, {
+                fetch(`https://coffee-store-server-green-three.vercel.app/coffee/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        // console.log(data);
                         if (data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",
